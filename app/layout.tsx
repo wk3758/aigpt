@@ -18,7 +18,7 @@ try {
 
 export const metadata = {
   title: "AIGPT",
-  description: "Your personal ChatGPT Chat Bot.",
+  description: "Your personal AIGPT Chat Bot.",
   appleWebApp: {
     title: "AIGPT",
     statusBarStyle: "black-translucent",
