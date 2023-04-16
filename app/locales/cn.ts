@@ -45,7 +45,7 @@ const cn = {
   },
   Settings: {
     Title: "设置",
-    SubTitle: "自定义你的选项吧",
+    SubTitle: "自定义你的选项",
     Actions: {
       ClearAll: "清除所有的数据",
       ResetAll: "重置所有选项",
@@ -129,11 +129,11 @@ const cn = {
   },
   Store: {
     DefaultTopic: "请提问吧",
-    BotHello: "我是你的AI助手，你可以问任何的问题，比如“什么是修行？”",
-    Error: "现在和我对话的朋友有点多，休息，休息一下。正在冥想中...",
+    BotHello: "我是您的最佳智能AI助理，您可以问任何的问题，比如“什么是修行？”",
+    Error: "现在和我对话的朋友有点多，正在冥想中...主人，请休息、休息一下。",
     Prompt: {
       History: (content: string) =>
-        "这是 ai 和用户的历史聊天总结作为前情提要：" + content,
+        "这是 AI 和用户的历史聊天总结作为前情提要：" + content,
       Topic:
         "使用四到五个字直接返回这句话的简要主题，不要解释、不要标点、不要语气词、不要多余文本，如果没有主题，请直接返回“闲聊”",
       Summarize:
