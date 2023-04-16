@@ -40,14 +40,14 @@ const cn = {
     Copy: "全部复制",
   },
   Home: {
-    NewChat: "新的聊天",
-    DeleteChat: "确认删除选中的对话？",
+    NewChat: "新的主题",
+    DeleteChat: "确认删除该对话吗？",
   },
   Settings: {
     Title: "设置",
-    SubTitle: "设置选项",
+    SubTitle: "自定义你的选项吧",
     Actions: {
-      ClearAll: "清除所有数据",
+      ClearAll: "清除所有的数据",
       ResetAll: "重置所有选项",
       Close: "关闭",
     },
@@ -60,7 +60,7 @@ const cn = {
         es: "Español",
       },
     },
-    Avatar: "头像",
+    Avatar: "设置一个头像吧",
     FontSize: {
       Title: "字体大小",
       SubTitle: "聊天内容的字体大小",
@@ -97,7 +97,7 @@ const cn = {
     },
     Token: {
       Title: "API Key",
-      SubTitle: "使用自己的 Key 可绕过受控访问限制",
+      SubTitle: "使用自己的API Key，速度会更快哦",
       Placeholder: "OpenAI API Key",
     },
     Usage: {
@@ -128,9 +128,9 @@ const cn = {
     },
   },
   Store: {
-    DefaultTopic: "新的聊天",
-    BotHello: "有什么可以帮你的吗",
-    Error: "出错了，稍后重试吧",
+    DefaultTopic: "请提问吧",
+    BotHello: "我是你的AI助手，你可以问任何的问题，比如“什么是修行？”",
+    Error: "现在和我对话的朋友有点多，休息，休息一下。正在冥想中...",
     Prompt: {
       History: (content: string) =>
         "这是 ai 和用户的历史聊天总结作为前情提要：" + content,
