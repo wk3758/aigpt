@@ -9,7 +9,7 @@ const cn = {
     ChatItemCount: (count: number) => `${count} 条对话`,
   },
   Chat: {
-    SubTitle: (count: number) => `与 AIGPT 的 ${count} 条对话`,
+    SubTitle: (count: number) => `您与 AIGPT 的 ${count} 条对话`,
     Actions: {
       ChatList: "查看消息列表",
       CompressedHistory: "查看压缩后的历史 Prompt",
@@ -40,7 +40,7 @@ const cn = {
     Copy: "全部复制",
   },
   Home: {
-    NewChat: "新的主题",
+    NewChat: "新的聊天主题",
     DeleteChat: "确认删除该对话吗？",
   },
   Settings: {
@@ -128,7 +128,7 @@ const cn = {
     },
   },
   Store: {
-    DefaultTopic: "请提问吧",
+    DefaultTopic: "主人，请向我提问吧",
     BotHello: "我是您的最佳AI助理，您可以问任何问题，比如“什么是修行？”",
     Error: "现在和我对话的朋友有点多。正在冥想中...主人，请休息、休息一下。",
     Prompt: {
