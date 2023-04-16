@@ -630,9 +630,9 @@ export function Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>AIGPT智能助手</div>
+          <div className={styles["sidebar-title"]}>AIGPT 智能助理</div>
           <div className={styles["sidebar-sub-title"]}>
-            AIGPT：你最佳的人工智能助手.
+            你的最佳人工智能助手.
           </div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />
