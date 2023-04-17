@@ -7,7 +7,7 @@ const requestCounts: Record<string, number> = {};
 async function makeRequest(req: NextRequest & { socket: IncomingMessage["socket"] }) {
   const ipAddress = req.headers.get("x-real-ip") || req.socket.remoteAddress;
 
-  if (!requestCounts[ipAddress]) {
+    if (!requestCounts[ipAddress as string]) {
     requestCounts[ipAddress] = 1;
   } else {
     requestCounts[ipAddress]++;
