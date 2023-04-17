@@ -1,23 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requestOpenai } from "../common";
+import { IncomingMessage } from "http";
 
-// 用于存储每个 IP 地址的请求计数
 const requestCounts: Record<string, number> = {};
 
-async function makeRequest(req: NextRequest) {
-  // 从请求中获取 IP 地址
+async function makeRequest(req: NextRequest & { socket: IncomingMessage["socket"] }) {
   const ipAddress = req.headers.get("x-real-ip") || req.socket.remoteAddress;
 
-  // 如果 IP 地址不存在于 requestCounts 对象中，将其添加并设置计数为 1
   if (!requestCounts[ipAddress]) {
     requestCounts[ipAddress] = 1;
   } else {
-    // 否则，增加 IP 地址的请求计数
     requestCounts[ipAddress]++;
   }
 
-  // 如果 IP 地址的请求次数超过 20 次，返回错误信息
-  if (requestCounts[ipAddress] > 20) {
+  if (requestCounts[ipAddress] > 3) {
     return NextResponse.json(
       {
         error: true,
