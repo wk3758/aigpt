@@ -13,7 +13,7 @@ if (!requestCounts[ipAddress as string]) {
   requestCounts[ipAddress as string]++;
 }
 
-  if (requestCounts[ipAddress] > 3) {
+const ipAddress = (req.headers.get("x-real-ip") || req.socket.remoteAddress || "0.0.0.0") as string;
     return NextResponse.json(
       {
         error: true,
