@@ -1,33 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requestOpenai } from "../common";
-import { IncomingMessage } from "http";
 
-const requestCounts: Record<string, number> = {};
-
-async function makeRequest(req: NextRequest & { socket: IncomingMessage["socket"] }) {
-  const ipAddress = req.headers.get("x-real-ip") || req.socket.remoteAddress;
-
-if (!requestCounts[ipAddress as string]) {
-  requestCounts[ipAddress as string] = 1;
-} else {
-  requestCounts[ipAddress as string]++;
-}
-
-const ipAddress = (req.headers.get("x-real-ip") || req.socket.remoteAddress || "0.0.0.0") as string;
-    return NextResponse.json(
-      {
-        error: true,
-        msg: "您请求对话的次数已超过限制",
-      },
-      {
-        status: 429,
-      },
-    );
-  }
-
+async function makeRequest(req: NextRequest) {
   try {
-    const res = await requestOpenai(req);
-    return new Response(res.body);
+    const api = await requestOpenai(req);
+    const res = new NextResponse(api.body);
+    res.headers.set("Content-Type", "application/json");
+    res.headers.set("Cache-Control", "no-cache");
+    return res;
   } catch (e) {
     console.error("[OpenAI] ", req.body, e);
     return NextResponse.json(
@@ -37,7 +17,7 @@ const ipAddress = (req.headers.get("x-real-ip") || req.socket.remoteAddress || "
       },
       {
         status: 500,
-      },
+      }
     );
   }
 }
@@ -49,3 +29,7 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   return makeRequest(req);
 }
+
+export const config = {
+  runtime: "edge",
+};
